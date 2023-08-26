@@ -68,8 +68,13 @@ let listadoComentarios = [{
     }
 ];
 
+    /* const datosJSON = JSON.stringify(listadoComentarios)
+    console.log(datosJSON); */
+
+
 // Tenemos un listado de comentarios como punto de partida. Esto van a funcionar como registros en una base de datos.
 // Vamos a simular conectarnos con una API para recuperar los comentarios y verlos en pantalla.
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -81,7 +86,9 @@ boton.addEventListener('click', function () {
    console.log("Clink para ver comentarios...");
 
 //    Esta funcion retorna una promesa, por eso capturamos su resultado con el then()
-   consultaAsincrona("endpoint").then( respuesta => console.log(respuesta))
+
+
+   consultaAsincrona("fdfsd").then( respuesta => console.log(respuesta))
 })
 
 /* -------------------------------------------------------------------------- */
@@ -90,7 +97,27 @@ boton.addEventListener('click', function () {
 // Creamos una funcion que retorna una promesa despues de 2,5 segundos.
 // La idea es simular la demora de tiempo en responder de un servidor.
 
+    function consultaAsincrona (info) {
 
+        return new Promise((resolve,reject)=>{
+
+
+         setTimeout(() => {
+            
+            if (info === "endpoint") {
+                resolve(listadoComentarios)
+            } else {
+                reject({
+                    mensaje:"Lo lamentamos, no pudimos traer la info"
+                })
+            }
+
+
+         }, 2500);
+
+            
+        })
+    } 
 
 
 
