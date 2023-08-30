@@ -26,22 +26,15 @@ function consultarApi (endpoint){
 
 function renderizarElementos(listado){
 
-    const comentarios = document.getElementsByClassName("com")
-
-    comentarios.innerText = listado.map(elemento=>{
-        console.log(elemento);
-        return elemento.id
-        
-    })
-
-    /* comentarios.innerHTML= listado.map(lista =>{
+    const comentarios = document.querySelector(".comentarios")
+    comentarios.innerHTML= listado.map(item =>{
         return `<div class="comentario">
-                    <h4>${lista.email}</h4>
-                    <p>${lista.body}</p>
+                    <h4>${item.email}</h4>
+                    <p>${item.body}</p>
                 </div>`
     }).join('')
 
-        console.log("los comentarios vienen"); */
+        console.log("los comentarios vienen");
 
 
 }
